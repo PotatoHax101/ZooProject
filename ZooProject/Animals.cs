@@ -52,14 +52,14 @@ namespace ZooProject
                 Console.WriteLine("The Name needs to be between 4 and 12 characters");
             }
 
-            
+
         }
 
 
         public float CheckTemperature()
         {
             return _Temperature;
-        }    
+        }
 
         private void SetTemperature(float ChosenTemperature)
         {
@@ -90,6 +90,47 @@ namespace ZooProject
         {
             return _Diet;
         }
+
+        private void SetDiet(string ChosenDiet)
+        {
+            _Diet = ChosenDiet;
+        }
+
+        public bool CheckMaturity()
+        {
+            return _IsMature;
+        }
+
+        private void UpdateMaturity(bool MaturityChange)
+        {
+            _IsMature = MaturityChange;
+        }
+
+        public void CheckDimension()
+        {
+            Console.WriteLine("The Height is " + _Height);
+            Console.WriteLine("The Width is " + _Width);
+            Console.WriteLine("The Length is " + _Length);
+        }
+
+        private void SetDimension(float ChosenHeight, float ChosenWidth, float ChosenLength)
+        {
+            _Height = ChosenHeight;
+            _Width = ChosenWidth;
+            _Length = ChosenLength;
+        }
+
+        public bool CheckHavingOffspring()
+        {
+            return _HavingOffspring;
+        }
+
+        private void SetHavingOffspring(bool HavingOffspringUpdate)
+        {
+            _HavingOffspring = HavingOffspringUpdate;
+        }
+
+
 
     }
 }
