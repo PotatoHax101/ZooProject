@@ -8,12 +8,13 @@ namespace ZooProject
 {
     class AnimalEnclosure
     {
-        private float _Temperature, _BiodiversityIndex;
-        private int _Population, _FoodLevel;
-        private string _Name, _FoodSupplyType, HabitatType, TerrianType;
-        private bool _FoodFilled;
-        private List<string> _AnimalList = new List<string>();
-        private string[] _Environment = new string[4];
+        public float _Temperature, _BiodiversityIndex;
+        public int _Population, _FoodLevel, N, n, D;
+        public string _Name,_FoodSupplyType, HabitatType, TerrianType;
+        public bool _FoodFilled;
+        public List<string> _AnimalList = new List<string>();
+        public string[] _Environment = new string[4];
+
 
         public void GetName()
         {
@@ -92,12 +93,65 @@ namespace ZooProject
                 Console.WriteLine(_Environment[i]);
             }
         }
-        
+    }
 
-        private void hello(string animal)
+    class AmphibianEnclosure: AnimalEnclosure
+    {
+        private int _FilterHealth;
+        private int _CleanPeriod;
+        private List<string> _UnderwaterCosmetics = new List<string>();
+        private float _WaterFlow;
+
+        public AmphibianEnclosure(string Name)
         {
-            Console.WriteLine("The animal " + animal + " has been removed to the Animal Enclosure '" + _Name + "'!");
-            _AnimalList.Remove(animal);
+            _Name = Name;
+        }
+
+        public int CheckFilterHealth()
+        {
+            return _FilterHealth;
+        }
+
+        public int GetCleanPeriod()
+        {
+            return _CleanPeriod;
+        }
+
+        public void CheckUnderwaterCosmetics()
+        {
+            for (int i = 0; i <=3; i++)
+            {
+                Console.WriteLine(_UnderwaterCosmetics[i]);
+            }
+        }
+
+        public float CheckWaterFlow()
+        {
+            return _WaterFlow;
+        }
+
+        private void SetFilterHealth(int NewHealth)
+        {
+            _FilterHealth = NewHealth;
+        }
+
+        public void ChangeCleanPeriod(int NewPeriod)
+        {
+            _CleanPeriod = NewPeriod;
+        }
+
+        public void AddUnderWaterCosmetic(string CosmeticName)
+        {
+            _UnderwaterCosmetics.Add(CosmeticName);
+        }
+        public void RemoveUnderWaterCosmetic(string CosmeticName)
+        {
+            _UnderwaterCosmetics.Remove(CosmeticName);
+        }
+
+        public void SetWaterFlow(int NewFlow)
+        {
+            _WaterFlow = NewFlow;
         }
     }
 }
