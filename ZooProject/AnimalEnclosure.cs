@@ -9,11 +9,12 @@ namespace ZooProject
     class AnimalEnclosure
     {
         public float _Temperature, _BiodiversityIndex;
-        public int _Population, _FoodLevel;
+        public int _Population, _FoodLevel, N, n, D;
         public string _Name,_FoodSupplyType, HabitatType, TerrianType;
         public bool _FoodFilled;
         public List<string> _AnimalList = new List<string>();
         public string[] _Environment = new string[4];
+
 
         public void GetName()
         {
