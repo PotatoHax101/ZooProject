@@ -20,7 +20,7 @@ namespace ZooProject
         private float _Width;
         private float _Height;
         private bool _HavingOffspring;
-        private Enum _StageOfLife;
+        private int _StageofLife;
         private bool _SearchingForMate;
         private bool _HasDisease;
         private int _AmountOfEggs;
@@ -128,6 +128,36 @@ namespace ZooProject
         private void SetHavingOffspring(bool HavingOffspringUpdate)
         {
             _HavingOffspring = HavingOffspringUpdate;
+        }
+
+        public int CheckStageofLife()
+        {
+            return _StageofLife;
+        }
+
+        private void SetStageofLife(int StageUpdate)
+        {
+            _StageofLife = StageUpdate;
+        }
+
+        public bool CheckSearchingForMate()
+        {
+            return _SearchingForMate;
+        }
+
+        private void SetSearchingForMate(bool SearchingForMateUpdate)
+        {
+            _SearchingForMate = SearchingForMateUpdate;
+        }
+
+        public int CheckHealth()
+        {
+            return _Health;
+        }
+
+        private void SetHealth(int HealthUpdate)
+        {
+            _Health = HealthUpdate;
         }
 
 
