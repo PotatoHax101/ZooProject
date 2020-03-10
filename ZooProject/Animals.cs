@@ -36,82 +36,99 @@ namespace ZooProject
 
         }
 
-        public string GetName()
+        public string Name
         {
-            return _Name;
-        }
-
-        public void SetName(string ChosenName)
-        {
-            if (ChosenName.Length <= 12 && ChosenName.Length >= 4)
+            get
             {
-                _Name = ChosenName;
-            }
-            else
-            {
-                Console.WriteLine("The Name needs to be between 4 and 12 characters");
+                return _Name;
             }
 
+            set
+            {               
 
+                if (value.Length <= 12 && value.Length >= 4)
+                {
+                    _Name = value;
+                }
+                else
+                {
+                    Console.WriteLine("The Name needs to be between 4 and 12 characters");
+                }
+            }
         }
 
-
-        public float CheckTemperature()
+        public float AnimalTemperature
         {
-            return _Temperature;
+            get
+            {
+                return _Temperature;
+            }
+
+            private set
+            {
+                _Temperature = value;
+            }
         }
 
-        private void SetTemperature(float ChosenTemperature)
+        public int AnimalAge
         {
-            _Temperature = ChosenTemperature;
+            get
+            {
+                return _Age;
+            }
+
+            private set
+            {
+                _Age = value;
+            }
         }
 
-        public int GetAge()
+        public int AnimalFoodStatus
         {
-            return _Age;
+            get
+            {
+                return _FoodStatus;
+            }
+
+            set
+            {
+                _FoodStatus = value;
+            }
+
         }
 
-        private void SetAge(int ChosenAge)
+        public string AnimalDiet
         {
-            _Age = ChosenAge;
+            get
+            {
+                return _Diet;
+            }
+
+            private set
+            {
+                _Diet = value;
+            }
+
         }
 
-        public int CheckFoodStatus()
+        public bool AnimalMaturity
         {
-            return _FoodStatus;
-        }
+            get
+            {
+                return _IsMature;
+            }
 
-        private void SetFoodStatus(int ChosenStatus)
-        {
-            _FoodStatus = ChosenStatus;
+            private set
+            {
+                _IsMature = value;
+            }
         }
+ 
 
-        public string CheckDiet()
+        public void CheckDimension() //Dimension stuff must be remade as an array instead. For now it can remain as this but it would be better to prepare it for use just incase it is ever decided to need it.
         {
-            return _Diet;
-        }
-
-        private void SetDiet(string ChosenDiet)
-        {
-            _Diet = ChosenDiet;
-        }
-
-        public bool CheckMaturity()
-        {
-            return _IsMature;
-        }
-
-        private void UpdateMaturity(bool MaturityChange)
-        {
-            _IsMature = MaturityChange;
-        }
-
-        public void CheckDimension()
-        {
-            Console.WriteLine("The Height is " + _Height);
-            Console.WriteLine("The Width is " + _Width);
-            Console.WriteLine("The Length is " + _Length);
-        }
+            Console.WriteLine("The Height is " + _Height + "The Width is " + _Width + "The Length is " + _Length);
+        }   
 
         private void SetDimension(float ChosenHeight, float ChosenWidth, float ChosenLength)
         {
@@ -120,47 +137,96 @@ namespace ZooProject
             _Length = ChosenLength;
         }
 
-        public bool CheckHavingOffspring()
+        public bool AnimalPregnancy
         {
-            return _HavingOffspring;
+            get
+            {
+                return _HavingOffspring;
+            }
+
+            private set
+            {
+                _HavingOffspring = value;
+            }
         }
 
-        private void SetHavingOffspring(bool HavingOffspringUpdate)
+        public int AnimalStageOfLife
         {
-            _HavingOffspring = HavingOffspringUpdate;
+            get
+            {
+                return _StageofLife;
+            }
+            
+            private set
+            {
+                _StageofLife = value;
+            }
         }
 
-        public int CheckStageofLife()
+        public bool AnimalMatingSeason
         {
-            return _StageofLife;
+            get
+            {
+                return _SearchingForMate;
+            }
+
+            set
+            {
+                _SearchingForMate = value;
+            }
         }
 
-        private void SetStageofLife(int StageUpdate)
+        public int AnimalHealth
         {
-            _StageofLife = StageUpdate;
+            get
+            {
+                return _Health;
+            }
+
+           private set
+            {
+                _Health = value;
+            }
         }
 
-        public bool CheckSearchingForMate()
+        public bool AnimalDiseaseStatus
         {
-            return _SearchingForMate;
+            get
+            {
+                return _HasDisease;
+            }
+
+            private set
+            {
+                _HasDisease = value;
+            }
         }
 
-        private void SetSearchingForMate(bool SearchingForMateUpdate)
+        public int AnimalEggStatus
         {
-            _SearchingForMate = SearchingForMateUpdate;
+            get
+            {
+                return _AmountOfEggs;
+            }
+
+            private set
+            {
+                _AmountOfEggs = value;
+            }
         }
 
-        public int CheckHealth()
+        public int AnimalsFertileAge
         {
-            return _Health;
+            get
+            {
+                return _AgeOfFertility;
+            }
+
+            private set
+            {
+                _AgeOfFertility = value;
+            }
         }
-
-        private void SetHealth(int HealthUpdate)
-        {
-            _Health = HealthUpdate;
-        }
-
-
 
     }
 }
