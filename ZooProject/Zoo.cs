@@ -10,20 +10,21 @@ namespace ZooProject
     {
         private string _Name;
 
-        public Zoo(string name)
+        private List<AnimalEnclosure> animalEnclosures;
+
+        public Zoo(string SetName)
         {
-            SetName(name);
+            animalEnclosures = new List<AnimalEnclosure>();
+            AmphibianEnclosure AxolotlEnclosure = new AmphibianEnclosure("Axolotl Enclosure", 15.0f, 100, 100, 7, 2.0f);
+
+            Name = SetName;
         }
 
-        public string GetName()
+        private string name;
+        public string Name 
         {
-            return _Name;
-        }
-
-        private void SetName(string name)
-        {
-            _Name = name;
-            Console.WriteLine("The name of the zoo is " + _Name + "!");
+            get { return name; }
+            private set { name = value; }
         }
     }
 }

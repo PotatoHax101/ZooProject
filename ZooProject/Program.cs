@@ -10,8 +10,8 @@ namespace ZooProject
     {
         static void Main(string[] args)
         {
-            Zoo SpookyZoo = new Zoo("The Manager");
-            SpookyZoo.GetName();
+            Zoo SpookyZoo = new Zoo("Cheese");
+            Console.WriteLine();
             Console.ReadLine();
         }
     }
