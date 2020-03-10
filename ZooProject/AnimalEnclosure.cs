@@ -8,80 +8,79 @@ namespace ZooProject
 {
     class AnimalEnclosure
     {
-        public float _Temperature, _BiodiversityIndex;
-        public int _Population, _FoodLevel, N, n, D;
-        public string _Name,_FoodSupplyType, HabitatType, TerrianType;
-        public bool _FoodFilled;
-        public List<string> _AnimalList = new List<string>();
-        public string[] _Environment = new string[4];
+        protected float BiodiversityIndex;
+        protected string FoodSupplyType, HabitatType, TerrainType;
+        protected string[] Environment = new string[4];
+        protected List<Animals> AnimalList = new List<Animals>();
+        protected readonly int MaxFood = 100;
 
+        public string Name { get; set; }
 
-        public void GetName()
+        private float temperature;
+        public float EnclosureTemperature
         {
-            Console.WriteLine(_Name);
+            get { return temperature; }
+            protected set 
+            {
+                Console.WriteLine("Temperature has been changed from " + temperature + " to " + value + ".");
+                temperature = value; 
+            }
         }
 
-        private void SetName(string name)
+        private int food;
+        public int FoodLevel
         {
-            _Name = name;
+            get { return food; }
+            protected set 
+            {
+                Console.WriteLine("Food level has been changed from " + food + " to " + value + ".");
+                food = value; 
+            }
         }
 
-        public float CheckTemperature()
+        // -a reference for how to use properties-
+        //private int myVar;
+
+        //public int MyProperty
+        //{
+        //    get { return myVar; }
+        //    set { myVar = value; }
+        //}
+
+        public List<Animals> CheckAnimals()
         {
-            return _Temperature;
+            return AnimalList;
         }
 
-        private void SetTemperatire(float NewTemperature)
+        protected void AddAnimals(Animals animal)
         {
-            Console.WriteLine("Temperature has been changed from " + _Temperature + " to " + NewTemperature + ".");
-            _Temperature = NewTemperature;
+            Console.WriteLine("The animal " + animal + " has been added to the Animal Enclosure '" + Name + "'!");
+            AnimalList.Add(animal);
         }
 
-        public int CheckFoodLevel()
+        protected void RemoveAnimals(Animals animal)
         {
-            return _FoodLevel;
+            Console.WriteLine("The animal " + animal + " has been removed to the Animal Enclosure '" + Name + "'!");
+            AnimalList.Remove(animal);
         }
 
-        private void SetFoodLevel(int NewFoodLevel)
+        private int population;
+        public int Population
         {
-            Console.WriteLine("Food level has been changed from " + _FoodLevel + " to " + NewFoodLevel + ".");
-            _FoodLevel = NewFoodLevel;
-        }
-
-        public List<string> CheckAnimals()
-        {
-            return _AnimalList;
-        }
-
-        private void AddAnimals(string animal)
-        {
-            Console.WriteLine("The animal " + animal + " has been added to the Animal Enclosure '" + _Name + "'!");
-            _AnimalList.Add(animal);
-        }
-
-        private void RemoveAnimals(string animal)
-        {
-            Console.WriteLine("The animal " + animal + " has been removed to the Animal Enclosure '" + _Name + "'!");
-            _AnimalList.Remove(animal);
-        }
-
-        public int CheckPopulation()
-        {
-            return _Population;
-        }
-
-        private void SetPopulation(int number)
-        {
-            Console.WriteLine("The population has been increased by " + number);
-            _Population += number;
+            get { return population; }
+            protected set
+            {
+                Console.WriteLine("The population has been been offset by " + value + "; moving from " + population + " to " + (population + value) + ".");
+                population += value;
+            }
         }
 
         public float CheckBiodiversity()
         {
-            return _BiodiversityIndex;
+            return BiodiversityIndex;
         }
 
-        private void CalculateBiodiversity()
+        protected void CalculateBiodiversity()
         {
             //Come back to this
         }
@@ -90,68 +89,74 @@ namespace ZooProject
         {
             for (int i = 0; i <= 3; i++)
             {
-                Console.WriteLine(_Environment[i]);
+                Console.WriteLine(Environment[i]);
+            }
+        }
+
+        protected bool IsFoodFilled(int FoodLevel)
+        {
+            if (FoodLevel >= MaxFood)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
 
     class AmphibianEnclosure: AnimalEnclosure
     {
-        private int _FilterHealth;
-        private int _CleanPeriod;
-        private List<string> _UnderwaterCosmetics = new List<string>();
-        private float _WaterFlow;
+        private int filterHealth, cleanPeriod;
+        private List<string> underwaterCosmetics = new List<string>();
+        private float waterFlow;
 
-        public AmphibianEnclosure(string Name)
+        public int FilterHealth
         {
-            _Name = Name;
+            get { return filterHealth; }
+            private set { filterHealth = value; }
         }
 
-        public int CheckFilterHealth()
+        public int GetCleanPeriod
         {
-            return _FilterHealth;
+            get { return cleanPeriod; }
+            private set { cleanPeriod = value; }
         }
 
-        public int GetCleanPeriod()
+        public float WaterFlow
         {
-            return _CleanPeriod;
+            get { return waterFlow; }
+            private set { waterFlow = value; }
+        }
+
+        public AmphibianEnclosure(string NewName, float Temp, int SetFoodLevel, int fhealth, int cdelta, float flow)
+        {
+            Name = NewName;
+            EnclosureTemperature = Temp;
+            FoodLevel = SetFoodLevel;
+            HabitatType = "Amphibian";
+            TerrainType = "Riverside";
+            filterHealth = fhealth;
+            cleanPeriod = cdelta;
+            waterFlow = flow;
         }
 
         public void CheckUnderwaterCosmetics()
         {
-            for (int i = 0; i <=3; i++)
+            foreach (string underwateItem in underwaterCosmetics)
             {
-                Console.WriteLine(_UnderwaterCosmetics[i]);
+                Console.WriteLine(underwateItem);
             }
-        }
-
-        public float CheckWaterFlow()
-        {
-            return _WaterFlow;
-        }
-
-        private void SetFilterHealth(int NewHealth)
-        {
-            _FilterHealth = NewHealth;
-        }
-
-        public void ChangeCleanPeriod(int NewPeriod)
-        {
-            _CleanPeriod = NewPeriod;
         }
 
         public void AddUnderWaterCosmetic(string CosmeticName)
         {
-            _UnderwaterCosmetics.Add(CosmeticName);
+            underwaterCosmetics.Add(CosmeticName);
         }
         public void RemoveUnderWaterCosmetic(string CosmeticName)
         {
-            _UnderwaterCosmetics.Remove(CosmeticName);
-        }
-
-        public void SetWaterFlow(int NewFlow)
-        {
-            _WaterFlow = NewFlow;
+            underwaterCosmetics.Remove(CosmeticName);
         }
     }
 }
