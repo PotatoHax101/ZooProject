@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmphibianEnclosure.cs" />
     <Compile Include="AnimalEnclosure.cs" />
     <Compile Include="Animals.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="Penguin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
