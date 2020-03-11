@@ -16,9 +16,7 @@ namespace ZooProject
         private int _FoodStatus;
         private string _Diet;
         private bool _IsMature;
-        private float _Length;
-        private float _Width;
-        private float _Height;
+        private float[] _Dimensions = new float[2];
         private bool _HavingOffspring;
         private int _StageofLife;
         private bool _SearchingForMate;
@@ -26,13 +24,33 @@ namespace ZooProject
         private int _AmountOfEggs;
         private int _AgeOfFertility;
 
-        public Animals(string GeneratedName, int GeneratedAge, bool LaysEggsVal)
+        public Animals(string GeneratedName, int GeneratedAge, bool LaysEggsVal, float GeneratedTemp, string ChosenDiet, int ChosenAgeofFertility, bool ChosenDiseaseStatus, float[] GeneratedDimensions, bool SearchingforMateStatus)
         {
             _Name = GeneratedName;
             _Age = GeneratedAge;
+            _StageofLife = 1; // this will depend on the age as well but we could have an if statement check a passed variable that shows the typical ages and then determine if it is or isn't. An array sounds good for this but it depends on how we want to do this.
             _Health = 100;
+            for (int i = 0; i < 2; i++)
+            {
+                _Dimensions[i] = GeneratedDimensions[i];
+            }
             _LaysEggs = LaysEggsVal;
-
+            _Temperature = GeneratedTemp;
+            _FoodStatus = 5;
+            _Diet = ChosenDiet;
+            _IsMature = false; //We can have an if statement which chooses the maturity depending on the age. For now I'll just leave as false, so that it looks nicer.
+            _AgeOfFertility = ChosenAgeofFertility;
+            _HavingOffspring = false; //I don't know if we want it to start with this as a possible true or it should start off as a no for everyone, it also should be an if statement of other variables.
+            if (_Age == _AgeOfFertility)
+            {
+                _SearchingForMate = SearchingforMateStatus;
+            }
+            else
+            {
+                _SearchingForMate = false;
+            }
+            _HasDisease = ChosenDiseaseStatus;
+            _AmountOfEggs = 0;
 
         }
 
@@ -125,16 +143,28 @@ namespace ZooProject
         }
  
 
-        public void CheckDimension() //Dimension stuff must be remade as an array instead. For now it can remain as this but it would be better to prepare it for use just incase it is ever decided to need it.
+        public float CheckDimension(string RequestedDimension) 
         {
-            Console.WriteLine("The Height is " + _Height + "The Width is " + _Width + "The Length is " + _Length);
+            if (RequestedDimension == "Width")
+            {
+                return _Dimensions[1];
+            }
+            else if (RequestedDimension == "Height")
+            {
+                return _Dimensions[2];
+            }
+            else
+            {
+                return _Dimensions[3];
+            }
         }   
 
-        private void SetDimension(float ChosenHeight, float ChosenWidth, float ChosenLength)
+        private void SetDimension(float[] ChosenDimensionsArray)
         {
-            _Height = ChosenHeight;
-            _Width = ChosenWidth;
-            _Length = ChosenLength;
+            for (int i = 0; i < 2; i++)
+            {
+                _Dimensions[i] = ChosenDimensionsArray[i];
+            }
         }
 
         public bool AnimalPregnancy
