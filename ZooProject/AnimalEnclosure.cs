@@ -11,7 +11,7 @@ namespace ZooProject
         protected float BiodiversityIndex;
         protected string FoodSupplyType, HabitatType, TerrainType;
         protected string[] Environment = new string[4];
-        protected List<Animals> AnimalList = new List<Animals>();
+        protected List<Animal> AnimalList = new List<Animal>();
         protected readonly int MaxFood = 100;
 
         public string Name { get; set; }
@@ -47,18 +47,18 @@ namespace ZooProject
         //    set { myVar = value; }
         //}
 
-        public List<Animals> CheckAnimals()
+        public List<Animal> CheckAnimals()
         {
             return AnimalList;
         }
 
-        protected void AddAnimals(Animals animal)
+        protected void AddAnimals(Animal animal)
         {
             Console.WriteLine("The animal " + animal + " has been added to the Animal Enclosure '" + Name + "'!");
             AnimalList.Add(animal);
         }
 
-        protected void RemoveAnimals(Animals animal)
+        protected void RemoveAnimals(Animal animal)
         {
             Console.WriteLine("The animal " + animal + " has been removed to the Animal Enclosure '" + Name + "'!");
             AnimalList.Remove(animal);
