@@ -52,13 +52,13 @@ namespace ZooProject
             return AnimalList;
         }
 
-        protected void AddAnimals(Animal animal)
+        public void AddAnimal(Animal animal)
         {
             Console.WriteLine("The animal " + animal + " has been added to the Animal Enclosure '" + Name + "'!");
             AnimalList.Add(animal);
         }
 
-        protected void RemoveAnimals(Animal animal)
+        public void RemoveAnimal(Animal animal)
         {
             Console.WriteLine("The animal " + animal + " has been removed to the Animal Enclosure '" + Name + "'!");
             AnimalList.Remove(animal);

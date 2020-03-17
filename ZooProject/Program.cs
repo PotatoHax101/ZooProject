@@ -6,13 +6,26 @@ using System.Threading.Tasks;
 
 namespace ZooProject
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
         {
             Zoo SpookyZoo = new Zoo("Cheese");
+
+
+            
             Console.WriteLine();
             Console.ReadLine();
+       
+        }
+
+
+        static void CreateAnimal()
+        {
+            Console.WriteLine("What animal?");
+            string q = Console.ReadLine();
+
+
         }
     }
 }

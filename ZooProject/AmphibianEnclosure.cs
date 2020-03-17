@@ -56,7 +56,7 @@ namespace ZooProject
         }
         public void RemoveUnderWaterCosmetic(string CosmeticName)
         {
-            underwaterCosmetics.Remove(CosmeticName);
+                underwaterCosmetics.Remove(CosmeticName);
         }
     }
 }
